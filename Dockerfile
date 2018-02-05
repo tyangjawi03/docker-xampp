@@ -48,11 +48,11 @@ RUN apt-get -y install nano vim less --no-install-recommends
 
 # install from nodesource using apt-get
 # https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-an-ubuntu-14-04-server
-curl -sL https://deb.nodesource.com/setup | sudo bash - && \
-apt-get install -yq nodejs build-essential
+RUN curl -sL https://deb.nodesource.com/setup | sudo bash - && \
+RUN apt-get install -yq nodejs build-essential
 
 # fix npm - not the latest version installed by apt-get
-npm install -g npm
+RUN npm install -g npm
 
 RUN apt-get clean
 VOLUME [ "/var/log/mysql/", "/var/log/apache2/" ]
